@@ -10,21 +10,17 @@ import { Footer } from "./components/Footer";
 import { Connexion } from "./pages/Connexion";
 import { User } from "./pages/User";
 import { store } from "./app/store";
-import { Provider } from "react-redux";
 
 function App() {
   return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route exact path={"/"} element={<Home />}></Route>
-          <Route path={"/sign-in"} element={<Connexion />}></Route>
-          <Route path={"/user"} element={<User />}></Route>
-        </Routes>
-        <Footer />
-      </BrowserRouter>
-    </Provider>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path={"/"} element={<Home />}></Route>
+        <Route path={"/sign-in"} element={<Connexion />}></Route>
+        <Route path={"/user"} element={<User />}></Route>
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
 }
 
