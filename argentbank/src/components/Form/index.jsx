@@ -7,6 +7,10 @@ import { useNavigate } from "react-router-dom";
 import { setLogin } from "../../feature/userSlice";
 import { userPage } from "../../routes/routes";
 
+/**
+ * component Form represent the connexion form
+ * @returns {JSX.Element}
+ */
 export const Form = () => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");

@@ -9,6 +9,10 @@ import { home, signIn } from "../../routes/routes";
 import { useDispatch, useSelector } from "react-redux";
 import { setLogout } from "../../feature/userSlice";
 import { userPage } from "../../routes/routes";
+/**
+ * component Header
+ * @returns {JSX.Element}
+ */
 
 export const Header = () => {
   const dispatch = useDispatch();

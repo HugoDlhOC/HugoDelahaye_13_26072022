@@ -4,6 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { setChangeNameUser } from "../../feature/userSlice";
 import PropTypes from "prop-types";
 
+/**
+ * component MainInfos represent infos of user like firstname and lastname
+ * @param firstName
+ * @param lastName
+ * @returns {JSX.Element}
+ */
 export const MainInfos = ({ firstName, lastName }) => {
   //recover token
   const token = useSelector((state) => state.user.token);

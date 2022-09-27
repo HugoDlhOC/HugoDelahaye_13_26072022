@@ -1,3 +1,8 @@
+/**
+ * component Banner represent the banner for home page
+ * @returns {JSX.Element}
+ */
+
 export const Banner = () => {
   return (
     <div className="hero">

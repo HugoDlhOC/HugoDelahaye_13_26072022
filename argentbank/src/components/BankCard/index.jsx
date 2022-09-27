@@ -1,5 +1,12 @@
 import PropTypes from "prop-types";
 
+/**
+ * component BankCard represent the card of account
+ * @param accountTitle
+ * @param accountAmount
+ * @param accountAmountDescription
+ * @returns {JSX.Element}
+ */
 export const BankCard = ({
   accountTitle,
   accountAmount,

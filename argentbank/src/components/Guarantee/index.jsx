@@ -1,5 +1,13 @@
 import PropTypes from "prop-types";
 
+/**
+ * component Guarantee represent one Guarantee of a bank
+ * @param imgSrc
+ * @param imgAlt
+ * @param title
+ * @param content
+ * @returns {JSX.Element}
+ */
 export const Guarantee = ({ imgSrc, imgAlt, title, content }) => {
   return (
     <div className="feature-item">

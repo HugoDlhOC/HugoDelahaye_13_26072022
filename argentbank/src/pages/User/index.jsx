@@ -6,6 +6,10 @@ import { recoverDataUser } from "../../feature/apiSlice";
 import { setDataUser } from "../../feature/userSlice";
 import { useEffect } from "react";
 
+/**
+ * component page User
+ * @returns {JSX.Element}
+ */
 export const User = () => {
   const dispatch = useDispatch(); //with this, we can give an order to Redux
   const navigate = useNavigate();

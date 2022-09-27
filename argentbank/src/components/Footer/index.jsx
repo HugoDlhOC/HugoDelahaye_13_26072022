@@ -1,3 +1,7 @@
+/**
+ * component Footer
+ * @returns {JSX.Element}
+ */
 export const Footer = () => {
   return (
     <footer>

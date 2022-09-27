@@ -4,7 +4,11 @@ import imgGuarantee3 from "../../assets/icon-security.png";
 
 import { Guarantee } from "../Guarantee";
 
-export const Garenties = () => {
+/**
+ * component Guarantees represent alls guarantees of the bank
+ * @returns {JSX.Element}
+ */
+export const Guarantees = () => {
   return (
     <section className="features">
       <h2 className="sr-only">Features</h2>

@@ -1,11 +1,15 @@
 import { Banner } from "../../components/Banner";
-import { Garenties } from "../../components/Garenties";
+import { Guarantees } from "../../components/Garantees";
 
+/**
+ * component page Home
+ * @returns {JSX.Element}
+ */
 export const Home = () => {
   return (
     <div>
       <Banner />
-      <Garenties />
+      <Guarantees />
     </div>
   );
 };
