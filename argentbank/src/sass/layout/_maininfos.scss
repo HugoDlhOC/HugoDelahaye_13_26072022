@@ -15,8 +15,6 @@
   }
 
   .form-change-name {
-    display: none;
-
     form {
       display: flex;
       flex-direction: column;
@@ -42,5 +40,38 @@
     #form-change-name--buttons--cancel {
       margin-right: -11px;
     }
+  }
+}
+
+.display-block {
+  display: block;
+  animation: appearance 200ms ease-in;
+}
+
+.display-initial {
+  display: initial;
+  animation: appearance 200ms ease-in;
+}
+
+.display-none {
+  display: none;
+  animation: disappearance;
+}
+
+@keyframes appearance {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes disappearance {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }

@@ -1,3 +1,3 @@
 export const home = "/";
-export const signIn = "/sign-in";
-export const userPage = "/user";
+export const signIn = "/login";
+export const userPage = "/profile";

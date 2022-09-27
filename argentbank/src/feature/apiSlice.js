@@ -8,7 +8,6 @@ export const loginUser = async (user, password) => {
       "http://localhost:3001/api/v1/user/login",
       { email: user, password: password }
     );
-    console.log(response);
     return response.data;
   } catch (error) {
     console.log(error.response);
@@ -16,7 +15,7 @@ export const loginUser = async (user, password) => {
 };
 
 //one time user connect, he can access to his data with this method : control with token in header of Request
-export const recupDataUserConnect = async (token) => {
+export const recoverDataUser = async (token) => {
   try {
     const response = await axios.post(
       "http://localhost:3001/api/v1/user/profile",

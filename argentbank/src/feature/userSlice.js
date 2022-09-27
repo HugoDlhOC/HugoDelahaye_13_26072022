@@ -20,7 +20,7 @@ export const userSlice = createSlice({
       state.token = token;
     },
     //Action : User connected received data
-    setAccessDataUsers: (state, action) => {
+    setDataUser: (state, action) => {
       const { firstName, lastName } = action.payload;
       state.firstName = firstName;
       state.lastName = lastName;
@@ -42,5 +42,5 @@ export const userSlice = createSlice({
 });
 
 export default userSlice.reducer;
-export const { setLogin, setAccessDataUsers, setLogout, setChangeNameUser } =
+export const { setLogin, setDataUser, setLogout, setChangeNameUser } =
   userSlice.actions;

@@ -11,33 +11,43 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
 
-nav {
+.main-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 5px 20px;
 }
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-nav a img {
+.main-nav .main-nav-logo img {
   max-width: 100%;
   width: 200px;
 }
-nav div a {
+.main-nav div a {
   font-weight: bold;
   color: #2c3e50;
 }
-nav div .main-nav-item {
+.main-nav div .main-nav-item {
   text-decoration: none;
   margin-right: 0.5rem;
 }
-nav div .main-nav-item:hover {
+.main-nav div .main-nav-item:hover {
   text-decoration: underline;
+}
+.main-nav .main-nav-username {
+  margin-right: 20px;
+  text-decoration: none;
+  color: black;
+}
+.main-nav .main-nav-username :hover {
+  text-decoration: underline;
+}
+
+.main-nav--user-connect {
+  justify-content: flex-end;
+}
+.main-nav--user-connect .main-nav-logo {
+  margin-right: auto;
 }
 
 footer {
@@ -119,15 +129,15 @@ footer {
 
 .bg-dark {
   background-color: #12002b;
+  padding: 5px 0px;
+  min-height: 70vh;
 }
 
 main .sign-in-content {
   box-sizing: border-box;
   background-color: white;
   width: 300px;
-  margin: 0 auto;
-  margin-top: 0px;
-  margin-top: 3rem;
+  margin: 50px auto 0 auto;
   padding: 2rem;
 }
 main .sign-in-content form .input-wrapper {
@@ -159,6 +169,7 @@ main .sign-in-content form .sign-in-button {
   border-color: #00bc77;
   background-color: #00bc77;
   color: #fff;
+  text-decoration: underline;
 }
 
 .header {
@@ -174,9 +185,6 @@ main .sign-in-content form .sign-in-button {
   color: #fff;
   font-weight: bold;
   padding: 10px;
-}
-.header .form-change-name {
-  display: none;
 }
 .header .form-change-name form {
   display: flex;
@@ -200,6 +208,37 @@ main .sign-in-content form .sign-in-button {
   margin-right: -11px;
 }
 
+.display-block {
+  display: block;
+  animation: appearance 200ms ease-in;
+}
+
+.display-initial {
+  display: initial;
+  animation: appearance 200ms ease-in;
+}
+
+.display-none {
+  display: none;
+  animation: disappearance;
+}
+
+@keyframes appearance {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes disappearance {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
 .account {
   display: flex;
   justify-content: space-between;

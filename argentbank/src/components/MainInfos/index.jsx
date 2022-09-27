@@ -2,15 +2,19 @@ import { useState } from "react";
 import { changeUsername } from "../../feature/apiSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { setChangeNameUser } from "../../feature/userSlice";
+import PropTypes from "prop-types";
 
 export const MainInfos = ({ firstName, lastName }) => {
   //recover token
   const token = useSelector((state) => state.user.token);
   const dispatch = useDispatch();
 
+  //manage style edit button with class
+  const [open, setOpen] = useState(false);
+
   //this method will be display form for change username when user click in edit button
   const handleOpenFormUser = () => {
-    document.querySelector(".form-change-name").style.display = "block";
+    setOpen(true);
   };
 
   const [firstname, setFirstname] = useState("");
@@ -29,19 +33,23 @@ export const MainInfos = ({ firstName, lastName }) => {
   //method form - changeUserName() will be called with token, firstname, lastname parameters - order to redux to call setChangeNameUser() action for update state
   const handleForm = (e) => {
     e.preventDefault();
-    changeUsername(token, firstname, lastname).then((data) => {
-      dispatch(
-        setChangeNameUser({
-          firstName: data.body.firstName,
-          lastName: data.body.lastName,
-        })
-      );
-    });
+    changeUsername(token, firstname, lastname)
+      .then((data) => {
+        dispatch(
+          setChangeNameUser({
+            firstName: data.body.firstName,
+            lastName: data.body.lastName,
+          })
+        );
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   //cancel the form, hide form part
-  const handleCancelForm = () => {
-    document.querySelector(".form-change-name").style.display = "none";
+  const handleCloseForm = () => {
+    setOpen(false);
   };
 
   return (
@@ -53,24 +61,41 @@ export const MainInfos = ({ firstName, lastName }) => {
           {firstName + " "}
           {lastName}!
         </h1>
-        <button className="edit-button" onClick={handleOpenFormUser}>
+        <button
+          className={
+            open === false
+              ? "edit-button display-initial"
+              : "edit-button display-none"
+          }
+          onClick={handleOpenFormUser}
+        >
           Edit Name
         </button>
-        <div className={"form-change-name"}>
+        <div
+          className={
+            open === false
+              ? "form-change-name display-none"
+              : "form-change-name display-block"
+          }
+        >
           <form onSubmit={handleForm}>
             <div className={"form-change-name--inputs"}>
               <input placeholder={"Tony"} onChange={onChangeFirstname} />
               <input placeholder={"Jarvis"} onChange={onChangeLastname} />
             </div>
             <div className={"form-change-name--buttons"}>
-              <button id={"form-change-name--buttons--save"} type="submit">
+              <button
+                id={"form-change-name--buttons--save"}
+                type="submit"
+                onClick={handleCloseForm}
+              >
                 Save
               </button>
               {/*"reset" for reset content of inputs*/}
               <button
                 id={"form-change-name--buttons--cancel"}
                 type={"reset"}
-                onClick={handleCancelForm}
+                onClick={handleCloseForm}
               >
                 Cancel
               </button>
@@ -81,4 +106,9 @@ export const MainInfos = ({ firstName, lastName }) => {
       <h2 className="sr-only">Accounts</h2>
     </div>
   );
+};
+
+MainInfos.propTypes = {
+  firstName: PropTypes.string,
+  lastName: PropTypes.string,
 };

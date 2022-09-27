@@ -4,44 +4,44 @@
 
 .bg-dark {
   background-color: #12002b;
+  padding: 5px 0px;
+  min-height: 70vh;
 }
 
-main{
-  .sign-in-content{
+main {
+  .sign-in-content {
     box-sizing: border-box;
     background-color: white;
     width: 300px;
-    margin: 0 auto;
-    margin-top: 0px;
-    margin-top: 3rem;
+    margin: 50px auto 0 auto;
     padding: 2rem;
 
-    form{
-      .input-wrapper{
+    form {
+      .input-wrapper {
         display: flex;
         flex-direction: column;
         text-align: left;
         margin-bottom: 1rem;
 
-        label{
+        label {
           font-weight: bold;
         }
 
-        input{
+        input {
           padding: 5px;
           font-size: 1.2rem;
         }
       }
 
-      .input-remember{
+      .input-remember {
         display: flex;
 
-        label{
+        label {
           margin-left: 0.25rem;
         }
       }
 
-      .sign-in-button{
+      .sign-in-button {
         display: block;
         width: 100%;
         padding: 8px;
@@ -51,6 +51,7 @@ main{
         border-color: #00bc77;
         background-color: #00bc77;
         color: #fff;
+        text-decoration: underline;
       }
     }
   }

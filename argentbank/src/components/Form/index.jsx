@@ -16,7 +16,6 @@ export const Form = () => {
   //submit function for form - call loginUser() method with password and user recover in inputs - order redux to call action setLogin, pass token recover to response of request, and navigate to /user page
   const handleForm = (e) => {
     e.preventDefault();
-    console.log(user, password);
     loginUser(user, password).then((data) => {
       dispatch(setLogin({ connect: true, token: data.body.token }));
       navigate(userPage);
