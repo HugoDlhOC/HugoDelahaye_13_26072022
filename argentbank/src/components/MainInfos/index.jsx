@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { changeUsername } from "../../feature/apiSlice";
+import { changeUsername } from "../../services/communicationApi";
 import { useDispatch, useSelector } from "react-redux";
 import { setChangeNameUser } from "../../feature/userSlice";
 import PropTypes from "prop-types";

@@ -2,7 +2,7 @@ import { MainInfos } from "../../components/MainInfos";
 import { BankCard } from "../../components/BankCard";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { recoverDataUser } from "../../feature/apiSlice";
+import { recoverDataUser } from "../../services/communicationApi";
 import { setDataUser } from "../../feature/userSlice";
 import { useEffect } from "react";
 

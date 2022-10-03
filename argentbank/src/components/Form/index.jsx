@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import { loginUser } from "../../feature/apiSlice";
+import { loginUser } from "../../services/communicationApi";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setLogin } from "../../feature/userSlice";
@@ -53,9 +53,7 @@ export const Form = () => {
           </div>
           <div className="input-remember">
             <input type="checkbox" id="remember-me" />
-            <label htmlFor="remember-me" v>
-              Remember me
-            </label>
+            <label htmlFor="remember-me">Remember me</label>
           </div>
           <button className="sign-in-button" type="submit">
             Sign In
