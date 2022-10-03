@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { recoverDataUser } from "../../services/communicationApi";
 import { setDataUser } from "../../feature/userSlice";
 import { useEffect } from "react";
+import { signIn } from "../../routes/routes";
 
 /**
  * component page User
@@ -13,6 +14,18 @@ import { useEffect } from "react";
 export const User = () => {
   const dispatch = useDispatch(); //with this, we can give an order to Redux
   const navigate = useNavigate();
+  const stateConnect = useSelector((state) => state.user.connect);
+
+  useEffect(() => {
+    //if user is not connected, redirect to connexion page
+    if (stateConnect === false) {
+      navigate(signIn);
+    }
+  }, [navigate, stateConnect]);
+
+  //recuperation of token
+  const token = useSelector((state) => state.user.token);
+
   useEffect(() => {
     //we pass token to recoverDataUserConnect function, then we give an order to Redux : action setAccessDataUsers (for change state of name actual user)
     recoverDataUser(token).then((data) => {
@@ -23,16 +36,7 @@ export const User = () => {
         })
       );
     });
-  }, []); //we call only one time recoverDataUser
-
-  //if user is not connected, redirect to connexion page
-  const stateConnect = useSelector((state) => state.user.connect);
-  if (stateConnect === false) {
-    navigate("./sign-in");
-  }
-
-  //recuperation of token
-  const token = useSelector((state) => state.user.token);
+  }, [dispatch, token]); //we call only one time recoverDataUser
 
   //recuperation firstname and lastname in the global state with useSelector() redux method
   const firstName = useSelector((state) => state.user.firstName);
