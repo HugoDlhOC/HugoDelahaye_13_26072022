@@ -15,16 +15,15 @@ export const User = () => {
   const dispatch = useDispatch(); //with this, we can give an order to Redux
   const navigate = useNavigate();
   const stateConnect = useSelector((state) => state.user.connect);
+  //recuperation of token
+  const token = useSelector((state) => state.user.token);
 
   useEffect(() => {
     //if user is not connected, redirect to connexion page
-    if (stateConnect === false) {
+    if (stateConnect === false || token === null) {
       navigate(signIn);
     }
   }, [navigate, stateConnect]);
-
-  //recuperation of token
-  const token = useSelector((state) => state.user.token);
 
   useEffect(() => {
     //we pass token to recoverDataUserConnect function, then we give an order to Redux : action setAccessDataUsers (for change state of name actual user)
